@@ -1,6 +1,6 @@
 var SlideNumber = require('../components/slide-number/slide-number')
   , converter = require('../converter')
-  , highlighter = require('../highlighter')
+  //, highlighter = require('../highlighter')
   , utils = require('../utils')
   ;
 
@@ -156,7 +156,8 @@ function createContentElement (events, slideshow, slide) {
 
   element.innerHTML = converter.convertMarkdown(slide.content, slideshow.getLinks());
 
-  highlightCodeBlocks(element, slideshow);
+  //From HOU: remark-inline-code로 element를 대체하면서 기존 커스텀 코드 내부의 로직이 반영이 안되는 현상 수정. highlight는 이미 markdownit에서 처리
+  //highlightCodeBlocks(element, slideshow);
 
   return element;
 }
@@ -176,7 +177,7 @@ function createNotesElement (slideshow, notes) {
 
   element.innerHTML = converter.convertMarkdown(notes, slideshow.getLinks());
 
-  highlightCodeBlocks(element, slideshow);
+  //highlightCodeBlocks(element, slideshow);
 
   return element;
 }

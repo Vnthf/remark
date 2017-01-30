@@ -1,5 +1,5 @@
 var resources = require('../../resources')
-  , highlighter = require('../../highlighter')
+  //, highlighter = require('../../highlighter')
   ;
 
 module.exports = {
@@ -27,12 +27,12 @@ function styleDocument () {
   styleElement.innerHTML = resources.documentStyles;
 
   // Append highlighting styles
-  for (style in highlighter.styles) {
-    if (highlighter.styles.hasOwnProperty(style)) {
-      styleElement.innerHTML = styleElement.innerHTML +
-        highlighter.styles[style];
-    }
-  }
+  //for (style in highlighter.styles) {
+  //  if (highlighter.styles.hasOwnProperty(style)) {
+  //    styleElement.innerHTML = styleElement.innerHTML +
+  //      highlighter.styles[style];
+  //  }
+  //}
 
   // Put element first to prevent overriding user styles
   headElement.insertBefore(styleElement, headElement.firstChild);

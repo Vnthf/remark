@@ -1,5 +1,5 @@
 var EventEmitter = require('events').EventEmitter
-  , highlighter = require('./highlighter')
+  //, highlighter = require('./highlighter')
   , converter = require('./converter')
   , resources = require('./resources')
   , Parser = require('./parser')
@@ -20,7 +20,7 @@ function Api (dom) {
 
 // Expose highlighter to allow enumerating available styles and
 // including external language grammars
-Api.prototype.highlighter = highlighter;
+//Api.prototype.highlighter = highlighter;
 
 Api.prototype.convert = function (markdown) {
   var parser = new Parser()
