@@ -20,11 +20,13 @@ Dom.prototype.getLocationHash = function () {
   return window.location.hash;
 };
 
+//FROM HOU: 페이지를 replaceState할 필요가 없음
 Dom.prototype.setLocationHash = function (hash) {
-  if (typeof window.history.replaceState === 'function' && document.origin !== 'null') {
-    window.history.replaceState(undefined, undefined, hash);
-  }
-  else {
-    window.location.hash = hash;
-  }
+  window.location.hash = hash;
+  //if (typeof window.history.replaceState === 'function' && document.origin !== 'null') {
+  //  window.history.replaceState(undefined, undefined, hash);
+  //}
+  //else {
+  //  window.location.hash = hash;
+  //}
 };
