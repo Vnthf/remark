@@ -11,11 +11,12 @@ var CODE = 1,
     MACRO_ARGS = 9,
     MACRO_OBJ = 10,
     SEPARATOR = 11,
-    NOTES_SEPARATOR = 12;
+    NOTES_SEPARATOR = 111;
 
+//FROM HOU: inline-code의 regex수정 backtick하나 이상도 먹도록
 var regexByName = {
     CODE: /(?:^|\n)( {4}[^\n]+\n*)+/,
-    INLINE_CODE: /`([^`]+?)`/,
+    INLINE_CODE: /`+([^\s\n`]{1}[^\s\n]+[^\s\n`]{1})`/,
     CONTENT: /(?:\\)?((?:\.[a-zA-Z_\-][a-zA-Z\-_0-9]*)+)\[/,
     FENCES: /(?:^|\n) *(`{3,}|~{3,}) *(?:\S+)? *\n(?:[\s\S]+?)\s*\4 *(?:\n+|$)/,
     DEF: /(?:^|\n) *\[([^\]]+)\]: *<?([^\s>]+)>?(?: +["(]([^\n]+)[")])? *(?:\n+|$)/,
@@ -25,7 +26,7 @@ var regexByName = {
   };
 
 var block = replace(/CODE|INLINE_CODE|CONTENT|FENCES|DEF|MACRO|SEPARATOR|NOTES_SEPARATOR/, regexByName),
-    inline = replace(/CODE|INLINE_CODE|CONTENT|FENCES|DEF|MACRO/, regexByName);
+    inline = replace(/CODE|CONTENT|FENCES|DEF|MACRO/, regexByName);
 
 function Lexer () { }
 
@@ -62,12 +63,13 @@ function lex (src, regex, tokens) {
         text: cap[0]
       });
     }
-    else if (cap[INLINE_CODE]) {
-      tokens.push({
-        type: 'text',
-        text: cap[0]
-      });
-    }
+    //FROM HOU: inline-code의 state를 뺌
+    //else if (cap[INLINE_CODE]) {
+    //  tokens.push({
+    //    type: 'text',
+    //    text: cap[0]
+    //  });
+    //}
     else if (cap[FENCES]) {
       tokens.push({
         type: 'fences',
