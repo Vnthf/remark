@@ -26,16 +26,17 @@ Keyboard.prototype.addKeyboardEventListeners = function () {
       return;
     }
 
+    //From hou: 위 아래를 스크롤 동작으로 변경
     switch (event.keyCode) {
       case 33: // Page up
       case 37: // Left
-      case 38: // Up
+      //case 38: // Up
         events.emit('gotoPreviousSlide');
         break;
       case 32: // Space
       case 34: // Page down
       case 39: // Right
-      case 40: // Down
+      //case 40: // Down
         events.emit('gotoNextSlide');
         break;
       case 36: // Home
@@ -52,6 +53,12 @@ Keyboard.prototype.addKeyboardEventListeners = function () {
           events.emit('gotoSlide', self._gotoSlideNumber);
           self._gotoSlideNumber = '';
         }
+        break;
+      case 40:
+        events.emit('scrollDown');
+        break;
+      case 38:
+        events.emit('scrollUp');
         break;
     }
   });
