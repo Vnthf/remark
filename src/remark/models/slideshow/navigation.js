@@ -6,6 +6,12 @@ function Navigation (events) {
     , started = null
     ;
 
+  var prevScrollValue,
+      SCROLL_INTERVAL = 30,
+      PAGE_SCROLL_INTERVAL = 300,
+      PAGE_SCROLL_ANIMATION_TIME = 500,
+      RENDER_SCROLL_DOWN_CARET_TIME = 1000;
+
   self.getCurrentSlideIndex = getCurrentSlideIndex;
   self.gotoSlide = gotoSlide;
   self.gotoPreviousSlide = gotoPreviousSlide;
@@ -20,6 +26,8 @@ function Navigation (events) {
   events.on('gotoNextSlide', gotoNextSlide);
   events.on('gotoFirstSlide', gotoFirstSlide);
   events.on('gotoLastSlide', gotoLastSlide);
+  events.on('scrollDown', scrollDown);
+  events.on('scrollUp', scrollUp);
 
   events.on('slidesChanged', function () {
     if (currentSlideIndex > self.getSlideCount()) {
@@ -38,6 +46,18 @@ function Navigation (events) {
 
   events.on('resetTimer', function() {
     started = false;
+  });
+
+  events.on('afterShowSlide', function (slide) {
+    showScrollDownCaret();
+
+    if(self.getSlides()[slide].properties.count === 'false' && prevScrollValue && prevScrollValue > 0) {
+      scroll(prevScrollValue);
+      scroll(PAGE_SCROLL_INTERVAL, true);
+    }
+    if(self.getSlides()[slide].properties.count === undefined) {
+      prevScrollValue = 0;
+    }
   });
 
   function pause () {
@@ -104,11 +124,17 @@ function Navigation (events) {
   }
 
   function gotoPreviousSlide() {
+    scroll(0);
     gotoSlideByIndex(currentSlideIndex - 1);
   }
 
   function gotoNextSlide() {
-    gotoSlideByIndex(currentSlideIndex + 1);
+    if(!isScrollBottom()) {
+      scroll(PAGE_SCROLL_INTERVAL, true);
+    } else {
+      gotoSlideByIndex(currentSlideIndex + 1);
+    }
+    setTimeout(showScrollDownCaret, RENDER_SCROLL_DOWN_CARET_TIME);
   }
 
   function gotoFirstSlide () {
@@ -144,5 +170,51 @@ function Navigation (events) {
     }
 
     return 0;
+  }
+
+  //From hou: scroll관련 이벤트 추가
+  function scrollUp () {
+    scroll(-SCROLL_INTERVAL);
+  }
+
+  function scrollDown () {
+    scroll(SCROLL_INTERVAL);
+  }
+
+  function scroll(val, isAnimate) {
+    var $activeSlide = $(".remark-visible .remark-slide-content"),
+      currentScrollVal = $activeSlide.scrollTop();
+    if($activeSlide.queue('fx').length > 0) {
+      $activeSlide.clearQueue();
+      $activeSlide.scrollTop(currentScrollVal + val);
+    }
+    if(isAnimate) {
+      $activeSlide.animate({
+        scrollTop: currentScrollVal + val
+      }, PAGE_SCROLL_ANIMATION_TIME);
+    } else {
+      $activeSlide.scrollTop(currentScrollVal + val);
+    }
+    prevScrollValue = currentScrollVal + val;
+    return $activeSlide;
+  }
+
+  function showScrollDownCaret() {
+    var $activeSlide = $(".remark-visible .remark-slide-content");
+    var $caret = $activeSlide.find('.caret');
+    $caret.hide();
+    if(!isScrollBottom()) {
+      if($caret.length === 0){
+        $(".remark-visible .remark-slide-number").after(
+          '<span class="caret"></span>'
+        );
+      }
+      $caret.show();
+    }
+  }
+
+  function isScrollBottom () {
+    var $activeSlide = $(".remark-visible .remark-slide-content");
+    return $activeSlide.scrollTop() + $activeSlide.outerHeight() >= $activeSlide[0].scrollHeight;
   }
 }
