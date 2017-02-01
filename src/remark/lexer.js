@@ -1,16 +1,16 @@
 module.exports = Lexer;
 
-var CODE = 1,
-    INLINE_CODE = 2,
-    CONTENT = 3,
-    FENCES = 4,
-    DEF = 5,
-    DEF_HREF = 6,
-    DEF_TITLE = 7,
-    MACRO = 8,
-    MACRO_ARGS = 9,
-    MACRO_OBJ = 10,
-    SEPARATOR = 11,
+var CODE = 2,
+    INLINE_CODE = 3,
+    CONTENT = 4,
+    FENCES = 5,
+    DEF = 6,
+    DEF_HREF = 7,
+    DEF_TITLE = 8,
+    MACRO = 9,
+    MACRO_ARGS = 10,
+    MACRO_OBJ = 11,
+    SEPARATOR = 1,
     NOTES_SEPARATOR = 111;
 
 //FROM HOU: inline-code의 regex수정 backtick하나 이상도 먹도록
@@ -25,8 +25,8 @@ var regexByName = {
     NOTES_SEPARATOR: /(?:^|\n)(\?{3})(?:\n|$)/
   };
 
-var block = replace(/CODE|INLINE_CODE|CONTENT|FENCES|DEF|MACRO|SEPARATOR|NOTES_SEPARATOR/, regexByName),
-    inline = replace(/CODE|CONTENT|FENCES|DEF|MACRO/, regexByName);
+var block = replace(/SEPARATOR|CODE|INLINE_CODE|CONTENT|FENCES|DEF|MACRO|NOTES_SEPARATOR/, regexByName),
+    inline = replace(/SEPARATOR|CODE|CONTENT|FENCES|DEF|MACRO/, regexByName);
 
 function Lexer () { }
 
@@ -57,19 +57,26 @@ function lex (src, regex, tokens) {
       });
     }
 
+
     if (cap[CODE]) {
       tokens.push({
         type: 'code',
         text: cap[0]
       });
     }
+    else if (cap[SEPARATOR]) {
+      tokens.push({
+        type: 'separator',
+        text: cap[SEPARATOR]
+      });
+    }
     //FROM HOU: inline-code의 state를 뺌
-    //else if (cap[INLINE_CODE]) {
-    //  tokens.push({
-    //    type: 'text',
-    //    text: cap[0]
-    //  });
-    //}
+    else if (cap[INLINE_CODE]) {
+      tokens.push({
+        type: 'text',
+        text: cap[0]
+      });
+    }
     else if (cap[FENCES]) {
       tokens.push({
         type: 'fences',
@@ -90,12 +97,6 @@ function lex (src, regex, tokens) {
         name: cap[MACRO],
         args: (cap[MACRO_ARGS] || '').split(',').map(trim),
         obj: cap[MACRO_OBJ]
-      });
-    }
-    else if (cap[SEPARATOR]) {
-      tokens.push({
-        type: 'separator',
-        text: cap[SEPARATOR]
       });
     }
     else if (cap[NOTES_SEPARATOR]) {

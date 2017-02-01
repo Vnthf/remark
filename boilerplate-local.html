@@ -2,7 +2,8 @@
 <html>
     <title>My Awesome Presentation</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <link type="stylesheet" href="vendor/dooray-renderer.min.css"/>
+    <link rel="stylesheet" href="vendor/presentation_vendor.css"/>
+    <link rel="stylesheet" href="vendor/modern-white.css"/>
     <style type="text/css">
       @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
       @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
@@ -19,20 +20,399 @@
   <body>
     <textarea id="source">
 
-class: center, middle
+background-color: #fff
+
+.slide-title[렌더링테스트]
+.slide-from-info[
+.user[신건영[만두]].email[kunyoung.shin@nhnent.com].department[Dooray개발실]]
+
 
 ---
 background-color: #fff
 
+.slide-sub-title[
+ 기본기능~~~~]
+
+
+
+---
+background-color: #fff
+
+# 기본기능~~~~
+## 제목2
+
+
+
+--
+### 제목3
+
+
+
+---
+background-color: #fff
+
+# 기본기능~~~~
+## 제목에 ````태그```` ``강조``입```니```다.
+
+**굵게**  **굵게123**
+<span style="color:#f7ca88">글자 색상</span>
+<span style="color:#7cafc2">글자 색상</span>
+<span style="color:#ab4642">글자 색상</span>
+_기울임꼴_
+~~취소선~~
+
+* * *
+> There are two ways of constructing a software design. One way is to make it so simple that there are obviously no deficiencies. And the other way is to make it so complicated that there are no obvious deficiencies.
+
+* * *
+
+
+
+---
+background-color: #fff
+
+# 기본기능~~~~
+## 이미지 첨부
+![Inline-image-2016-10-12 12.19.56.990.png](/files/1794645350982428053)
+
+
+
+
+---
+background-color: #fff
+
+# 기본기능~~~~
+## 리스트
+* Collaboration tools
+    * 업무에 최적인 메일
+    * 보다 쉬운 이슈트래커
+* 모든 도구를 연결하는 메신저
+* 렌더링
+    * 1대스
+        * 2댑스
+            * 3댑스
+                * 4댑스
+            * 3댑스
+        * 2댑스
+    * 1댑스
+
+* [x] 아침
+* [ ] 점심
+* [x] 저녁
+* [ ] 야식
+
+
+| T | F |
+| --- | --- |
+| o  |  |
+|  | o |
+
+[네이버](http://www.naver.com)
+
+http://www.naver.com
+
+`http://www.naver.com`
+
+`백틱하나`
+``백틱둘``
+```백틱셋```
+````백틱넷````
+`````백틱다섯`````
+``````백틱여섯``````
+```````백틱일곱```````
+
+
+
+
+---
+background-color: #fff
+
+.slide-sub-title[
+ Codeblock]
+
 ```
-23324
+ # not Renter
+http://www.naver.com 네이버어
+```
+
+```
+llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll
+```
+
+``llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll``
+
+| T | F |
+| --- | --- |
+| lllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll  |  llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll|
+| llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll | o |
+
+
+일반코드블럭
+
+
+```
+var eeeeefwfwefew
+```
+
+```
+var eeeeefwfwefew
+```
+
+``` javascript
+var getAbsProperty = function(user) {
+    return user.name;
+}
+```
+
+깨지면 안됨 - > js
+``` js
+var getAbsProperty = function(user) {
+    return user.name;
+}
+```
+
+
+---
+background-color: #fff
+
+# Codeblock
+## 추가기능: JSON PRETTY, Sequence(deprecated), math
+
+``` json
+{"a":"b", "c":"d"}
+```
+
+``` sequence
+a -> b : d
+```
+
+``` math
+a + b = c - 2b = 3
+```
+
+
+---
+background-color: #fff
+
+# Codeblock
+## 추가기능: UML
+
+
+
+--
+### Class
+```uml
+Class01 <|-- Class02
+Class03 *-- Class04
+Class05 o-- Class06
+Class07 .. Class08
+Class09 -- Class10
+```
+
+```uml
+skinparam classAttributeIconSize 0
+class Dummy {
+ -field1
+ #field2
+ ~method1()
+ +method2()
+}
+```
+
+```uml
+class Dummy
+Dummy --> Foo : A link
+note on link #red: note that is 빨강
+
+Dummy --> Foo2 : Another link
+note right on link #blue
+	this is my note on right link
+	and in blue
+end note
+```
+
+
+--
+### Activity
+```uml
+
+(*) --> "첫 Activity"
+-->[You can put also labels] "두 번째 Activity"
+--> (*)
+
+```
+
+
+
+--
+### Actor
+``` uml
+:First Actor:
+:Another\nactor: as Men2
+actor Men3
+actor :Last actor: as Men4
+
+```
+
+
+
+---
+background-color: #fff
+
+# Codeblock
+## 추가기능: Codepen
+
+
+
+--
+### success
+
+```codepen
+http://codepen.io/cobra_winfrey/pen/ozVygx
+```
+
+
+
+--
+### option (default)
+height: 300,
+themeId: null, (light, dark)
+preview: true,
+defaultTab: 'result'// (html, css, js)
+
+
+
+--
+### height: 500
+```codepen
+http://codepen.io/cobra_winfrey/pen/ozVygx
+height: 500
+```
+
+
+--
+### defaultTab: html
+```codepen
+http://codepen.io/cobra_winfrey/pen/ozVygx
+defaultTab: html
+```
+
+
+--
+### themeId: light
+```codepen
+http://codepen.io/cobra_winfrey/pen/ozVygx
+themeId: light
+```
+
+
+--
+### preview: false
+```codepen
+http://codepen.io/cobra_winfrey/pen/ozVygx
+preview: false
+```
+
+
+
+---
+background-color: #fff
+
+# Codeblock
+## 추가기능: Gist
+
+
+
+--
+### success
+```gist
+https://gist.github.com/Vnthf/710fca6ade10e4880a8ed9c8bee4389f
+```
+
+
+
+--
+### Deprecated (just url)
+https://gist.github.com/Vnthf/710fca6ade10e4880a8ed9c8bee4389f
+
+https://gist.github.com/Vnthf/710fca6ade10e4880213123123a8ed9c8bee4389f
+
+
+
+--
+### fail
+```gist
+https://gist.github.com/Vnthf/710fca6ade10e4880213123123a8ed9c8bee4389f
+```
+
+
+
+---
+background-color: #fff
+
+# Codeblock
+## 추가기능: Player
+
+가능목록: youtube, vimeo, prezi, 일반 video
+
+
+
+--
+### option (default)
+youtube: { width: 640, height: 390 },
+vimeo: { width: 500, height: 281 },
+prezi: { width: 550, height: 400 },
+video: { width: 640, height: 380 }
+
+
+
+--
+###  yotube https://www.youtube.com/watch?v=IQujZeEiXLk
+```player
+https://www.youtube.com/watch?v=IQujZeEiXLk
+width: 600
+height: 300
+```
+
+
+
+--
+### 일반 video - https://www.youtube.com/watch?v=IQujZeEiXLk
+```player
+http://techslides.com/demos/sample-videos/small.mp4
+```
+
+
+--
+###  prezi - https://prezi.com/1cn6ucikwqq_/presentation/
+```player
+https://prezi.com/1cn6ucikwqq_/presentation/
+```
+
+
+--
+###  vimeo - https://vimeo.com/195878566
+```player
+https://vimeo.com/195878566
+```
+
+
+--
+### video - not render
+```player
+223123123123
+123123
+123213
 ```
 
 ---
 background-color: #fff
 
-.slide-last-notification[고맙습니다].slide-page-link[
-https//nhnent.local.dooray.com/task/projects/mandooray-org-pj/18]
+.slide-last-notification[Thank you].slide-page-link[
+http//nhnent.local.dooray.com/task/projects/dooray-obt/2920]
+
+
+
 
     </textarea>
     <script src="vendor/dooray-renderer.min.js" type="text/javascript"></script>
