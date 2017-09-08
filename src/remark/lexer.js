@@ -11,7 +11,7 @@ var CODE = 2,
     MACRO_ARGS = 10,
     MACRO_OBJ = 11,
     SEPARATOR = 1,
-    NOTES_SEPARATOR = 111;
+    NOTES_SEPARATOR = 12;
 
 //FROM HOU: inline-code의 regex수정 backtick하나 이상도 먹도록
 var regexByName = {
@@ -26,7 +26,7 @@ var regexByName = {
   };
 
 var block = replace(/SEPARATOR|CODE|INLINE_CODE|CONTENT|FENCES|DEF|MACRO|NOTES_SEPARATOR/, regexByName),
-    inline = replace(/SEPARATOR|CODE|CONTENT|FENCES|DEF|MACRO/, regexByName);
+    inline = replace(/SEPARATOR|CODE|INLINE_CODE|CONTENT|FENCES|DEF|MACRO/, regexByName);
 
 function Lexer () { }
 
@@ -109,7 +109,6 @@ function lex (src, regex, tokens) {
       text = getTextInBrackets(src, cap.index + cap[0].length);
       if (text !== undefined) {
         src = src.substring(text.length + 1);
-
         if (cap[0][0] !== '\\') {
           tokens.push({
             type: 'content_start',
